@@ -9,6 +9,7 @@
   <body>
     |
     <h1>Acceso denegado</h1>
+    <!-- TODO: agregar tabla para visualización (actualmente se hace desde la consola) -->
     <script src="socket.io/socket.io.js"></script>
     <script>
       var socket = io();
@@ -23,6 +24,12 @@
 
       socket.on("mensaje", function (payload) {
         console.log("Escuchando", payload);
+      });
+      socket.on("event", function (payload) {
+        console.log("Escuchando", payload);
+      });
+      socket.on("active-bands", function (bands) {
+        console.table(bands);
       });
     </script>
   </body>
